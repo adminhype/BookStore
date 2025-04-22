@@ -1,10 +1,62 @@
+<!-- HTML 5 standard für Dokumentenaufbau -->
 <!DOCTYPE html>
-<html lang="en">
+<!-- sprachenangabe -->
+<html lang="de">
     <head>
+        <!-- UTF-8 zeichensatz für alle gänigen zeichen -->
+        <!-- repnsonsiv verhalten für alle geräte + standart zoom = 1 -->
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Store</title>
-        <script src="script.js"></script>
+
+        <!-- google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap"
+            rel="stylesheet"
+        />
+        <!-- style links -->
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="./styles/standart.css" />
+        <link rel="stylesheet" href="./styles/book.css" />
+        <link rel="stylesheet" href="./styles/assets.css" />
+        <!-- titel für browser-tab  -->
+        <title>BookStore</title>
+        <!-- favicon -->
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="./assets/logo/android-icon-48x48.png"
+        />
     </head>
-    <body></body>
+
+    <!-- alle funktionen ausführen beim start  -->
+    <!-- mit onload wird die init funktion ausgerufen, sobald die seite geladen ist -->
+    <body onload="init()">
+        <!-- header -->
+        <header>
+            <!-- klickbares logo, führt zu position x oder webseite -->
+            <a class="headerContainer" href="#">
+                <img
+                    src="./assets/logo/booklogo-removebg.png"
+                    alt="bookstore-logo"
+                />
+            </a>
+            <a class="headerTitle" href="#">DA Bookstore</a>
+        </header>
+        <!-- endheader -->
+
+        <!-- content  -->
+        <!-- hauptbereich mit javascript dynamisch gerenderter content -->
+        <section class="bodyContainer" id="content"></section>
+
+        <!-- script source  -->
+        <!-- reihenfolge: -->
+        <!-- 1. templates.js liefert html-template (template litterals) -->
+        <!-- 2. db.js stellt die buchdaten mit einem array befüllt mit objekten -->
+        <!-- 3. script.js enthält die logik(init, event-händler) -->
+        <script src="./scripts/templates.js"></script>
+        <script src="./scripts/db.js"></script>
+        <script src="script.js"></script>
+    </body>
 </html>

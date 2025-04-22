@@ -1,0 +1,32 @@
+/* .commentSubmitBtn {
+    background-color: #0d21a1;
+    color: #eef0f2;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 5px;
+} */
+
+/* submit button  */
+.commentSubmitBtn {
+    background: linear-gradient(135deg, #0d21a1, #2339c7);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.commentSubmitBtn:hover {
+    background: linear-gradient(135deg, #2339c7, #0d21a1);
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+.commentTextarea {
+    background-color: #0d21a1;
+    color: #eec643;
+}

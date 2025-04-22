@@ -1,0 +1,33 @@
+body {
+    background-color: rgb(238, 240, 242);
+    color: #141414;
+}
+header {
+    display: flex;
+    align-items: center;
+    background-color: #0d21a1;
+    height: 112px;
+    padding: 0 24px;
+    box-shadow: 0 4px 8px #1a1a1a;
+    color: #eec643;
+
+    img {
+        height: 96px;
+        width: 96px;
+        border-radius: 10px;
+    }
+}
+
+.headerTitle {
+    color: #eec643;
+    font-size: 48px;
+}
+
+.headerContainer {
+    display: flex;
+    h1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

@@ -1,0 +1,147 @@
+/* .bookCard {
+    min-height: 80vh;
+    min-width: auto;
+    background-color: #eec643;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    _border: solid 5px red;
+    border-radius: 50px;
+    margin: 100px;
+
+    img {
+        max-width: 120px;
+        width: 80%;
+        border-radius: 10px;
+        height: auto;
+    }
+    .bookCoverImage {
+        max-width: 575px;
+        width: 80%;
+    }
+    .bookCardCover {
+        display: flex;
+        justify-content: center;
+    }
+} */
+
+/* bodyContainer{
+
+} */
+
+/* bücher  */
+.bookCard {
+    background: #eec643;
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    margin: 80px auto;
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bookCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.bookCardCover {
+    display: flex;
+    justify-content: center;
+}
+
+.bookCoverImage {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 16px;
+}
+
+.bookCardHeader h2 {
+    font-size: 1.6rem;
+    color: #0d21a1;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.bookCardMeta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 15px;
+}
+.heartIcon {
+    width: 120px;
+}
+.bookCardLikes {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    cursor: pointer;
+}
+/* .bookCardMeta {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+} */
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#newComment {
+    margin-top: 40px;
+}
+.commentLabel {
+    margin-top: 40px;
+}
+@media (max-width: 768px) {
+    .bookCard {
+        flex-direction: column;
+        border-radius: 40px;
+        padding: 10px;
+    }
+
+    .bookCard img {
+        height: 200px;
+        width: 200px;
+    }
+
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 12px;
+        text-align: center;
+    }
+
+    .headerContainer h1 {
+        font-size: 1.4rem;
+    }
+
+    .commentTextarea {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .bookCard {
+        margin: 10px;
+        gap: 10px;
+    }
+
+    .bookCardMeta p {
+        font-size: 14px;
+    }
+    .bookCard .heartIcon {
+        width: 60px;
+        height: 60px;
+    }
+}
