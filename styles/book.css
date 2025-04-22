@@ -103,6 +103,9 @@ form {
 .commentLabel {
     margin-top: 40px;
 }
+.commentTextarea {
+    border-radius: 12px 12px 2px 2px;
+}
 @media (max-width: 768px) {
     .bookCard {
         flex-direction: column;
@@ -111,16 +114,16 @@ form {
     }
 
     .bookCard img {
-        height: 200px;
-        width: 200px;
+        height: 100px;
+        width: 100px;
     }
 
-    header {
+    /* header {
         flex-direction: column;
         height: auto;
         padding: 12px;
         text-align: center;
-    }
+    } */
 
     .headerContainer h1 {
         font-size: 1.4rem;
