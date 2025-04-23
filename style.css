@@ -10,25 +10,28 @@ header {
     padding: 0 24px;
     box-shadow: 0 4px 8px #1a1a1a;
     color: #eec643;
-
-    img {
-        height: 96px;
-        width: 96px;
-        border-radius: 10px;
-    }
-    @media (max-width: 720px) {
-        header {
-            display: flex;
-            font-size: 64px;
-        }
-    }
+}
+header img {
+    height: 96px;
+    width: 96px;
+    border-radius: 10px;
 }
 
 .headerTitle {
     color: #eec643;
     font-size: 48px;
 }
-
+@media (max-width: 720px) {
+    .headerTitle {
+        display: flex;
+        font-size: 32px;
+    }
+}
+@media (max-width: 480px) {
+    .headerTitle {
+        font-size: 18px;
+    }
+}
 .headerContainer {
     display: flex;
     h1 {
