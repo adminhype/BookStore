@@ -36,7 +36,7 @@ function renderTemplate(b, i) {
 
     return `
 <!-- Cover-Bild -->
-    <article class="bookCard">
+    <article class="bookCard" id="firstCard">
                 <div class="bookCardHeader">
                 <h2 class="bookCardTitle">${b.name}</h2>
                 </div>
