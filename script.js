@@ -73,37 +73,85 @@ function likeBook(event) {
 
 // *********************** Funktion: addComment *****************
 
-
+// funktion wird ausgerufen wenn ein kommentar abgeschickt wird 
+// aufruf in template.js > <form onsubmit="addComment(event)" data-index="0"></form>
 function addComment(event) {
+
+    // verhindert das standart vehalten vom formular (nicht die ganze seite neu laden)
     event.preventDefault();
 
-    const index = +event.target.dataset.index;
-    const book = books[index];
+    // index ermitteln vom buch
+    // event.target = ist das form Element
+    // dataset.index liest das data.index attribut als strng
+    // Number(..) wandelt den string in zahlen um 
+    const index = Number(event.target.dataset.index);
 
-    const textarea = event.target.querySelector(".commentTextarea");
+    // holt das <textarea>-feld aus dem fomular
+    /* <textarea name="comment">....</textarea> → event.target.elements.comment   */
+    const textarea = event.target.elements.comment;
+
+    // eingegebener text wird gelesen und leerzeichen werden entfernt
+    // trim () schneidet leerenraum anfang / ende 
     const text = textarea.value.trim();
 
-    if (text) {
-        const comment = {
-            name: "Du",
-            comment: text,
-        };
+    // wenn kein text dann abbruch
+    // text.length === 0 : feld leer → keine weitere aktion
+    if (text.length === 0) return;
 
-        book.comments.push(comment);
-        textarea.value = "";
-        showComments(index);
-    }
+    // ein neues kommentar objekt wird erstellt und ins array hinzugefügt
+    // books → globales array aus db .js
+    // comments ist ein array in jedem buch objekt
+    books[index].comments.push({
+        name: 'du', // anzeige name
+        comment: text // der getrimmte text aus textarea
+    });
+
+    //<textarea leeren für neuen input></textarea>
+    textarea.value = '';
+
+    // funktion aufrufen 
+    // damit eintrag sofort ins DOM geladen wird 
+    showComments(index)
 }
+
+// ************ funktion: showComments ********************
+
+// diese funktion baut aus den (books[index].comments) html 
+// zeigt es im kommentar container 
 function showComments(index) {
-    const commentBox = document.getElementById("comments-" + index);
-    const book = books[index];
-    let html = "";
+    // ziel container im html 
+    // id im template: id="comments-0 ect"
+    // hier = 'comments-' + index z.b 'comments-9'
+    const commentBox = document.getElementById('comments-' + index);
 
-    for (let i = 0; i < book.comments.length; i++) {
-        const c = book.comments[i];
-        html += "<div><strong>" + c.name + ":</strong> " + c.comment + "</div>";
+    // zum zusammen bauen des htmls leeren string 
+    let htmlComment = '';
+
+    // auf das array kommentar für das buch zugreifen 
+    // wie bei addComment: books{index}.comments
+    const comments = books[index].comments;
+
+    // array durchlaufen mit for schleife
+    // i = 0 (erste element), i < comments.length (bis zum letzten),
+    // i++ eröht i in jedem durchlauf
+    for (let i = 0; i < comments.length; i++) {
+        // c = aktuelles kommentar objekt
+        // { name: 'xyz', comment: 'xyz'}
+        const c = comments[i];
+
+
+        // für das objekt eine div 
+        // strong um namen fett zu makrieren
+        // + leerzeichen und kommentar text 
+        htmlComment +=
+            '<div><strong>' +
+            c.name +
+            ':</strong>' +
+            c.comment +
+            '</div>';
     }
 
-    commentBox.innerHTML = html;
+    // gesamnten html string zusammensetzen
+    // innerHTML ersetzt den inhalt
+    commentBox.innerHTML = htmlComment;
 }
-
