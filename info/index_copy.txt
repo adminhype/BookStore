@@ -30,8 +30,12 @@
         />
     </head>
 
+    <!-- alle funktionen ausführen beim start  -->
+    <!-- mit onload wird die init funktion ausgerufen, sobald die seite geladen ist -->
     <body onload="init()">
+        <!-- header -->
         <header>
+            <!-- klickbares logo, führt zu position x oder webseite -->
             <a class="headerContainer" href="#">
                 <img
                     src="./assets/logo/booklogo-removebg.png"
@@ -40,12 +44,21 @@
             </a>
             <a class="headerTitle" href="#">DA Bookstore</a>
         </header>
+        <!-- endheader -->
 
+        <!-- content  -->
+        <!-- hauptbereich mit javascript dynamisch gerenderter content -->
         <section class="bodyContainer" id="content"></section>
 
         <footer id="footArea">
             <p>:)</p>
         </footer>
+
+        <!-- script source  -->
+        <!-- reihenfolge: -->
+        <!-- 1. templates.js liefert html-template (template litterals) -->
+        <!-- 2. db.js stellt die buchdaten mit einem array befüllt mit objekten -->
+        <!-- 3. script.js enthält die logik(init, event-händler) -->
         <script src="./scripts/templates.js"></script>
         <script src="./scripts/db.js"></script>
         <script src="script.js"></script>

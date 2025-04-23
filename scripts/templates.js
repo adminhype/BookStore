@@ -1,42 +1,11 @@
-// *************** Funktion: renderTemplate *******************
 
-// wird aufgerufen mit renderTemplate(b, i)
-// b = aktuelles buch aus db .js (array)
-// i = index im array (0,1,2 ect)
-
-function renderTemplate(b, i) {
-    // leere variable für die heart img 
-    let heartImg = "";
-    // wenn b.liked(dieses buch gelkied ist)
-    if (b.liked) {
-        // wenn ja, heartfull 
-        heartImg = "./assets/img/heartfull1.png";
-    } else {
-        // wenn nein, heartempy 
-        heartImg = "./assets/img/heartempty1.png";
-    }
-    // Kommentare zusammensetzen aus strings
-    let commentHTML = "";
-    for (let i = 0; i < b.comments.length; i++) {
-        // kommentar objekt 
-        const kommentar = b.comments[i];
-
-        // jedes kommentar in div anzeigen
-        // name als auch kommentar 
-        commentHTML += `
-        <div class="commentItem">
-        <strong>${kommentar.name}:</strong> ${kommentar.comment}
-        </div>
-    `;
-    }
-
-    // template mit dynamischem inhalt ${b.xy}
-    // das komplette html template als string 
-    // wird als rückgabewert gegben um in init() oder innerHTML zu rendern 
+// template .js reines html ohne logik
+// function mit 4 parameter buch objekt, index, herz img und html kommentar 
+function bookTemplate(b, i, heartImg, commentHtml) {
 
     return `
 <!-- Cover-Bild -->
-    <article class="bookCard" id="firstCard">
+    <article class="bookCard" id="book-${i}">
                 <div class="bookCardHeader">
                 <h2 class="bookCardTitle">${b.name}</h2>
                 </div>
@@ -73,7 +42,9 @@ function renderTemplate(b, i) {
 <!-- Kommentar‑Bereich -->
                     <aside class="bookCardComments">
                     <h3 class="commentsHeading">Kommentare</h3>
-                <div class="commentsList" id="comments-${i}"></div>
+                <div class="commentsList" id="comments-${i}">
+                ${commentHtml}
+                </div>
 
 <!-- Formular zum Hinzufügen eines neuen Kommentars -->
                         <form onsubmit="addComment(event)" data-index=${i}>
