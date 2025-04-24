@@ -3,8 +3,8 @@ function init() {
 
     const bodyContainer = document.getElementById('content');
 
-
     let allHtml = "";
+
     for (let i = 0; i < books.length; i++) {
         allHtml += renderTemplate(books[i], i);
     }
@@ -13,6 +13,7 @@ function init() {
         showComments(i);
     }
 }
+
 function likeBook(event) {
     const index = +event.target.dataset.index;
     const book = books[index];
@@ -43,18 +44,14 @@ function addComment(event) {
         name: 'du',
         comment: text
     });
-
     textarea.value = '';
-
     showComments(index)
 }
+
 function showComments(index) {
     const commentBox = document.getElementById('comments-' + index);
-
     let htmlComment = '';
-
     const comments = books[index].comments;
-
     for (let i = 0; i < comments.length; i++) {
         const c = comments[i];
         htmlComment +=
@@ -66,6 +63,7 @@ function showComments(index) {
     }
     commentBox.innerHTML = htmlComment;
 }
+
 function renderTemplate(b, i) {
     const heartImg = getHeartImg(b);
     const commentHtml = buildCommentHTML(b.comments);

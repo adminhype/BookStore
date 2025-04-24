@@ -17,7 +17,6 @@ function bookTemplate(b, i, heartImg, commentHtml) {
                 />
                 </figure>
 
-
 <!-- Metadaten: Likes, Preis, Autor, Jahr, Genre -->
                 <div class="bookCardMeta">
                     <div class="bookCardLikes">
