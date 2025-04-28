@@ -32,18 +32,17 @@ header img {
 .headerTitle {
     color: #eec643;
     font-size: 48px;
-}
-@media (max-width: 720px) {
-    .headerTitle {
+
+    @media (max-width: 720px) {
         display: flex;
         font-size: 32px;
     }
-}
-@media (max-width: 480px) {
-    .headerTitle {
+
+    @media (max-width: 480px) {
         font-size: 18px;
     }
 }
+
 .headerContainer {
     display: flex;
     h1 {
